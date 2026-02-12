@@ -20,7 +20,7 @@
 // ==============================================
 // ADJUSTABLE PARAMETERS
 // ==============================================
-let SHOW_VIDEO = false;              // Show/hide video feed (toggle with touch)
+let SHOW_VIDEO = true;              // Show/hide video feed (toggle with touch)
 let SHOW_ALL_KEYPOINTS = true;      // Show all 21 hand keypoints (set to false to hide)
 // Customize which hand point to track:
 // 8 = index finger tip (default)
@@ -129,7 +129,7 @@ function draw() {
   
    
   // Draw instructions and status
-  drawUI();
+  //drawUI();
 }
 
 // ==============================================
@@ -346,5 +346,3 @@ function mousePressed() {
   SHOW_VIDEO = !SHOW_VIDEO;
   return false;
 }
-
-
