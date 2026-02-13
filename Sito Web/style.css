@@ -1,0 +1,426 @@
+
+/* ===== VARIABLES ===== */
+:root {
+    --bg-main: #0a0a14;
+    --bg-secondary: #12122a;
+    --accent-cyan: #00f5ff;
+    --accent-purple: #7b2ff7;
+    --text-main: #ffffff;
+    --text-muted: #cccccc;
+}
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #12122a, var(--bg-main));
+    color: var(--text-main);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: rgba(10, 10, 20, 0.85) !important;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+}
+
+.navbar-dark .nav-link {
+    color: var(--text-main);
+    font-weight: 500;
+    margin-left: 22px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    transition: width 0.3s ease;
+}
+
+.navbar-dark .nav-link:hover {
+    color: var(--accent-cyan);
+}
+
+.navbar-dark .nav-link:hover::after {
+    width: 100%;
+}
+
+.logo-img {
+    height: 50px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px var(--accent-cyan));
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 60px 60px;
+    gap: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('./immagini/hero-bg.jpg') center / cover no-repeat;
+    filter: brightness(0.4);
+    z-index: -2;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(0,245,255,0.2), transparent 60%),
+                radial-gradient(circle at 70% 70%, rgba(123,47,247,0.25), transparent 60%);
+    z-index: -1;
+}
+
+/* ===== HERO IMAGE ===== */
+.container-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.immagine-presentazione {
+    width: 85%;
+    max-width: 420px;
+    border-radius: 25px;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.immagine-presentazione:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow:
+        0 0 30px rgba(0,245,255,0.6),
+        0 0 40px rgba(123,47,247,0.5);
+}
+
+/* ===== HERO TEXT ===== */
+.container-testo {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    animation: fadeUp 1.5s ease forwards;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards 0.4s;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 120px 40px 60px;
+}
+
+.hero-inner {
+    width: 100%;
+    max-width: 1200px;   /* 🔥 limite desktop */
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1600px) {
+    .hero-inner {
+        max-width: 1400px;
+    }
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: linear-gradient(90deg, #0a0a14, #1a1a2e);
+    color: #aaa;
+    border-top: 1px solid #222;
+    padding: 25px 0;
+    font-size: 0.9rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 120px 30px 60px;
+    }
+
+    .container-testo {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-img {
+        height: 40px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* ===== LAYOUT CREATORI ===== */
+.romeo,
+.tintin,
+.tronco {
+    max-width: 1100px;
+    margin: 140px auto 50px;
+    padding: 35px 45px;
+    background: rgba(18, 18, 42, 0.8);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+    
+}
+
+
+/* alternanza immagine */
+.tintin {
+    flex-direction: row-reverse;
+}
+
+/* ===== IMMAGINI ===== */
+.romeo img,
+.tintin img,
+.tronco img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow:
+        0 0 25px rgba(0,245,255,0.35),
+        0 0 35px rgba(123,47,247,0.35);
+}
+
+/* ===== TESTO ===== */
+.romeo h1,
+.tintin h1,
+.tronco h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.romeo p,
+.tintin p,
+.tronco p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ===== RESPONSIVE (come stack nel disegno) ===== */
+@media (max-width: 100%) {
+    .romeo,
+    .tintin,
+    .tronco {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 30px;
+    }
+
+    .romeo img,
+    .tintin img,
+    .tronco img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* ===== DESCRIZIONE GIOCO ===== */
+.descrizione-gioco {
+    max-width: 1100px;
+    margin: 140px auto 60px;
+    padding: 40px 50px;
+    background: rgba(18, 18, 42, 0.8);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+}
+
+.descrizione-gioco img {
+    width: 280px;
+    height: auto;
+    border-radius: 20px;
+    flex-shrink: 0;
+    box-shadow:
+        0 0 25px rgba(0,245,255,0.35),
+        0 0 35px rgba(123,47,247,0.35);
+}
+
+.descrizione-gioco p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ===== SEZIONE COMANDI ===== */
+.comandi {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    padding: 35px 40px;
+    background: rgba(18, 18, 42, 0.75);
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* ===== TABELLA ===== */
+.comandi table {
+    border-radius: 22px; /* arrotonda gli angoli */
+    overflow: hidden;
+}
+
+.comandi thead th {
+    text-align: left;
+    font-size: 1.6rem;
+    padding-bottom: 20px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.comandi tbody tr {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.comandi tbody tr:last-child {
+    border-bottom: none;
+}
+
+.comandi td {
+    padding: 18px 10px;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+}
+
+.comandi td:first-child {
+    font-weight: 600;
+    color: var(--text-main);
+    width: 30%;
+}
+
+/* ===== HOVER ===== */
+.comandi tbody tr:hover {
+    background: rgba(0,245,255,0.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .descrizione-gioco {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .descrizione-gioco img {
+        width: 220px;
+    }
+
+    .comandi {
+        padding: 30px 25px;
+    }
+
+    .comandi td {
+        display: block;
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .comandi td:first-child {
+        font-size: 1.1rem;
+        margin-top: 12px;
+    }
+}
+
+.bottone {
+    text-align: center;
+    margin-top: 30px;
+    bottom: 10px;
+}
+
+/* Stile per il button */
+.bottone button {
+    background: linear-gradient(90deg, #00ccff7d, #001aff);
+    border: none;
+    border-radius: 12px;
+    padding: 15px 35px;
+    cursor: pointer;
+    box-shadow: 
+        0 0 15px rgba(0,245,255,0.35),
+        0 0 25px rgba(123,47,247,0.35);
+    transition: all 0.3s ease;
+}
+
+/* Hover del button */
+.bottone button:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 25px rgba(0,245,255,0.35),
+        0 0 35px rgba(123,47,247,0.35);
+}
+
+/* Stile per il link dentro il button */
+.bottone button a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    display: inline-block;
+}
